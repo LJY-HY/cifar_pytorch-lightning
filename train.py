@@ -11,7 +11,7 @@ from utils.args import *
 
 if __name__ == '__main__':
     datasets = ['CIFAR10','CIFAR100']
-    NNModels = ['VGG','Resnet','WideResnet']
+    NNModels = ['VGG','Resnet','WideResnet','Densenet']
     for dataset in datasets:
         if dataset == 'CIFAR10':
             dm = CIFAR10DataModule()

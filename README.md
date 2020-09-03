@@ -26,7 +26,7 @@ pip3 install -r setup/requirements.txt
 After you have cloned the repository, you can train each dataset of either cifar10, cifar100 by running the script below.
 
 ```bash
-python test.py
+python train.py
 ```
 
 ## Implementation Details
@@ -40,11 +40,11 @@ python test.py
 
 - CIFAR100
 
-|   epoch   | learning rate |  weight decay | Optimizer | Momentum | Nesterov |
-|:---------:|:-------------:|:-------------:|:---------:|:--------:|:--------:|
-|   0 ~ 60  |      0.1      |     0.0005    |    SGD    |    0.9   |   true   |
-|  61 ~ 120 |      0.01     |     0.0005    |    SGD    |    0.9   |   true   |
-| 121 ~ 180 |      0.001    |     0.0005    |    SGD    |    0.9   |   true   |
+|   epoch   | learning rate |  weight decay | Optimizer | Momentum |  Nesterov |
+|:---------:|:-------------:|:-------------:|:---------:|:--------:|:---------:|
+|   0 ~ 60  |      0.1      |     0.0005    |    SGD    |    0.9   |   False   |
+|  61 ~ 120 |      0.01     |     0.0005    |    SGD    |    0.9   |   False   |
+| 121 ~ 180 |      0.001    |     0.0005    |    SGD    |    0.9   |   False   |
 
 ## Accuracy
 Below is the result of the test set accuracy for CIFAR-10, CIFAR-100 dataset training
@@ -53,12 +53,17 @@ Below is the result of the test set accuracy for CIFAR-10, CIFAR-100 dataset tra
 | network           | dropout | preprocess | parameters | accuracy(%) |
 |:-----------------:|:-------:|:----------:|:----------:|:-----------:|
 |       VGG16       |    0    |   meanstd  |     14M    |    91.09    |
-|       Resnet      |    0    |   meanstd  |     23M    |    92.11    |
+|      Resnet-50    |    0    |   meanstd  |     23M    |    92.11    |
 | WideResnet 28x10  |   0.3   |   meanstd  |     36M    |    93.61    |
+|     Densenet-BC   |    0    |   meanstd  |    769K    |    92.85    |
+|      Densenet     |    0    |   meanstd  |    769K    |    93.06    |
+
 
 **Accuracy of models trained on CIFAR100**
 | network           | dropout | preprocess | parameters | accuracy(%) |
 |:-----------------:|:-------:|:----------:|:----------:|:-----------:|
 |       VGG16       |    0    |   meanstd  |     14M    |    72.79    |
-|       Resnet      |    0    |   meanstd  |     23M    |    75.80    |
+|      Resnet-50    |    0    |   meanstd  |     23M    |    75.80    |
 | WideResnet 28x20  |   0.3   |   meanstd  |    145M    |    75.46    |
+|     Densenet-BC   |    0    |   meanstd  |    800K    |    72.23    |
+|      Densenet     |    0    |   meanstd  |    800K    |    75.58    |

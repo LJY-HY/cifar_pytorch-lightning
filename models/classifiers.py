@@ -12,9 +12,10 @@ import torchvision.models.resnet as Resnet
 
 from models.WideResnet import Wide_ResNet
 from models.Densenet import DenseNet
+from models.Densenet_BC import DenseNet_BC
 import pytorch_lightning as pl
 from pytorch_lightning.metrics.functional import accuracy
-
+import pdb
 '''
 CIFAR10_model skeleton
 '''
@@ -101,6 +102,11 @@ class CIFAR10_Densenet(CIFAR10_LIGHTNING):
     def __init__(self):
         super(CIFAR10_LIGHTNING, self).__init__()
         self.model = DenseNet()
+
+class CIFAR10_Densenet_BC(CIFAR10_LIGHTNING):
+    def __init__(self):
+        super(CIFAR10_Densenet_BC,self).__init__()
+        self.model = DenseNet_BC(num_classes=10)
 
 
 '''
@@ -189,3 +195,8 @@ class CIFAR100_Densenet(CIFAR100_LIGHTNING):
     def __init__(self):
         super(CIFAR100_Densenet, self).__init__()
         self.model = DenseNet(num_classes=100)
+
+class CIFAR100_Densenet_BC(CIFAR10_LIGHTNING):
+    def __init__(self):
+        super(CIFAR100_Densenet_BC,self).__init__()
+        self.model = DenseNet_BC(num_classes=100)

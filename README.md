@@ -23,7 +23,7 @@ pip3 install -r setup/requirements.txt
 ```
 
 ## How to run
-After you have cloned the repository, you can train each dataset of either cifar10, cifar100 by running the script below.
+After you have cloned the repository, you can train each models with datasets cifar10, cifar100, SVHN. Trainable models are [VGG](https://arxiv.org/abs/1409.1556), [Resnet](https://arxiv.org/abs/1512.03385), [WideResnet](https://arxiv.org/pdf/1605.07146.pdf), [Densenet-BC](https://arxiv.org/pdf/1608.06993.pdf), [Densenet](https://arxiv.org/abs/1608.06993).
 
 ```bash
 python train.py
